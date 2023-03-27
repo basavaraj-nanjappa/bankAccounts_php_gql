@@ -61,6 +61,9 @@ $app->singleton(
 
 $app->configure('app');
 
+$app->configure('lighthouse');
+$app->configure('graphql-playground');
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -91,10 +94,16 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
+$app->register(\Nuwave\Lighthouse\LighthouseServiceProvider::class);
+$app->register(\Nuwave\Lighthouse\Pagination\PaginationServiceProvider::class);
+$app->register(\Nuwave\Lighthouse\Validation\ValidationServiceProvider::class);
+
+$app->register(MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
