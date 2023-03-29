@@ -41,3 +41,17 @@
         }
     }
     ```
+    - if you have set the CURSOR as your paginator, then query as bleow (further explore)
+    ```
+    {
+        accounts(first: 2) {
+            edges {
+                node {
+                    accountid
+                    accountnumber
+                }
+                cursor
+            }
+        }
+    }
+    ```

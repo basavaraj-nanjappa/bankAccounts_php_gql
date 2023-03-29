@@ -22,4 +22,13 @@ class Account extends Model
 
     const CREATED_AT = 'created_on';
     const UPDATED_AT = 'last_login';
+
+    // https://medium.com/@steno983/laravel-models-column-alias-c48a75065fb9
+    // protected $maps = [
+    //     'dbCol1' => 'coolName1',
+    //     'dbCol2' => 'coolName2'
+    // ];
+    // protected $append = ['coolName1', 'coolName2'];
+    // protected $hidden = ['dbCol1', 'dbCol2'];
+    
 }

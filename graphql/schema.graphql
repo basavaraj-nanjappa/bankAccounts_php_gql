@@ -5,7 +5,9 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 type Query {
     account(accountid: ID @eq): Account @find
     
-    accounts: [Account!]! @paginate(defaultCount: 10)
+    "Pagination using cursor is the best practice"
+    # accounts: [Account!]! @paginate(defaultCount: 10, type: CONNECTION)
+    accounts: [Account!]! @orderBy(column: "created_on", direction: DESC) @paginate(defaultCount: 10) 
 }
 
 type Account {
