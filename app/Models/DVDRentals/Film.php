@@ -30,8 +30,8 @@ class Film extends Model
         return $this->hasMany(FilmActor::class, "film_id");
     }
 
-    // public function film_category(): HasOne
-    // {
-    //     return $this->hasOne(FilmCategory::class);
-    // }
+    public function film_category(): HasOne
+    {
+        return $this->hasOne(FilmCategory::class, "film_id");
+    }
 }
