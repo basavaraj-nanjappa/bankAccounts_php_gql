@@ -8,14 +8,46 @@ type Query {
     "Pagination using cursor is the best practice"
     # accounts: [Account!]! @paginate(defaultCount: 10, type: CONNECTION)
     accounts: [Account!]! @orderBy(column: "created_on", direction: DESC) @paginate(defaultCount: 10) 
+
+    DVDRentalsFilms(film_id: ID @eq): [DVDRentalsFilm!]! @paginate(defaultCount: 10)
+
+    film_actor(film_id: ID @eq): [FilmActor!]! @all
 }
 
 type Account {
     accountid: ID!
-    
     accountnumber: String!
-    
     created_on: DateTime
-    
     last_login: DateTime
 }
+
+type DVDRentalsFilm @model(class: "\\App\\Models\\DVDRentals\\Film")  {
+    film_id: ID!
+    title: String!
+    description: String
+    release_year: Int
+    language_id: Int
+    rental_duration: Int
+    rental_rate: Float
+    length: Int 
+    replacement_cost: Int
+    rating: String
+    film_actors: [FilmActor!]
+    # category: FilmCategory
+}
+
+type FilmActor @model(class: "\\App\\Models\\DVDRentals\\FilmActor") {
+    film_id: ID!
+    actor_id: ID!
+    actor: Actor!
+}
+
+type Actor @model(class: "\\App\\Models\\DVDRentals\\Actor") {
+    actor_id: ID!
+    first_name: String!
+    last_name: String!
+}
+
+# type FilmCategory {
+#     name
+# }
