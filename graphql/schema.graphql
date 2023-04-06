@@ -33,7 +33,7 @@ type DVDRentalsFilm @model(class: "\\App\\Models\\DVDRentals\\Film")  {
     replacement_cost: Int
     rating: String
     film_actors: [FilmActor!]
-    film_category: FilmCategory
+    # film_category: FilmCategory
 }
 
 type FilmActor @model(class: "\\App\\Models\\DVDRentals\\FilmActor") {

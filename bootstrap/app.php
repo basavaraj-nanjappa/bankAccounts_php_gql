@@ -107,6 +107,8 @@ $app->register(\Nuwave\Lighthouse\OrderBy\OrderByServiceProvider::class);
 
 $app->register(MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class);
 
+$app->register(Clockwork\Support\Lumen\ClockworkServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
