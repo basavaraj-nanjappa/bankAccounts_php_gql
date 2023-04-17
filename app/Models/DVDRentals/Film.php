@@ -35,8 +35,8 @@ class Film extends Model
         return $this->hasOne(FilmCategory::class, "film_id");
     }
 
-    public function rating_summary() 
-    {
+    // public function rating_summary() 
+    // {
         
-    }
+    // }
 }

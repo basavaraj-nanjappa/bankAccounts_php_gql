@@ -6,10 +6,12 @@ type Query {
     account(accountid: ID @eq): Account @find
     
     "Pagination using cursor is the best practice"
-    # accounts: [Account!]! @paginate(defaultCount: 10, type: CONNECTION)
-    accounts: [Account!]! @orderBy(column: "created_on", direction: DESC) @paginate(defaultCount: 10) 
+    accounts: [Account!]! @paginate(defaultCount: 10, type: CONNECTION)
+    # accounts: [Account!]! @orderBy(column: "created_on", direction: DESC) @paginate(defaultCount: 10) 
 
-    DVDRentalsFilms(film_id: ID @eq): [DVDRentalsFilm!]! @paginate(defaultCount: 10)
+    DVDRentalsFilms(film_id: ID @eq): [DVDRentalsFilm!]! @paginate(defaultCount: 10) 
+    
+    DVDRentalsFilmsCount(film_id: ID @eq): Int! @count(columns: ["rental_rate"], distinct: true, model: "\\App\\Models\\DVDRentals\\Film")
 
     film_actor(film_id: ID @eq): [FilmActor!]! @all
 }
